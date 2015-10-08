@@ -27,9 +27,12 @@ $response = $twitter->setGetfield($getfield)
 
 /*
  * Die Schnittstelle liefert die Daten in Form von JSON aus, dieses Format kann
- * mit json_decode in ein natives php Array konvertiert werden.
+ * mit json_decode in ein natives (assoziatives) php Array konvertiert werden.
  */
 $data = json_decode($response);
+
+
+
 foreach ($data->statuses as $tweet){
  echo $tweet->text;
 }
