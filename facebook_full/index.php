@@ -171,6 +171,9 @@ foreach ($posts as $post){
         $sum++;
     }
   }
+  //als Resultat erhält man einen normierten Mittelwert im Bereich [-1;1]
+  $sum /= length($comments);
+
   $post->setSentiment($sum);
 
   //in datenbank speichern
