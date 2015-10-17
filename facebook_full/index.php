@@ -20,7 +20,7 @@ class Post{
   }
 
   public function setSentiment($sentiment){
-    $this->sentiment = (int)$sentiment;
+    $this->sentiment = $sentiment;
   }
   public function getId(){
     return $this->id;
@@ -35,7 +35,7 @@ class Post{
   }
 
   public function getSentiment(){
-    return (int) $this->sentiment;
+    return floatval($this->sentiment);
   }
 }
 
@@ -79,7 +79,7 @@ class PostDAO{
     $this->insert_sql->bindValue(':id', $post->getId(), PDO::PARAM_STR);
     $this->insert_sql->bindValue(':text', $post->getText(), PDO::PARAM_STR);
     $this->insert_sql->bindValue(':date', $post->getDate(), PDO::PARAM_STR);
-    $this->insert_sql->bindValue(':sentiment', $post->getSentiment(), PDO::PARAM_INT);
+    $this->insert_sql->bindValue(':sentiment', $post->getSentiment(), PDO::PARAM_STR);
 
     $this->insert_sql->execute();
   }
@@ -172,7 +172,7 @@ foreach ($posts as $post){
     }
   }
   //als Resultat erhält man einen normierten Mittelwert im Bereich [-1;1]
-  $sum /= length($comments);
+  $sum = (0===$sum) ? $sum: $sum/count($comments);
 
   $post->setSentiment($sum);
 
