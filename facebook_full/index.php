@@ -144,7 +144,7 @@ class FacebookScraping {
  */
 
 // Access Token wird benötigt. Ein temporärer kann unter https://developers.facebook.com/tools/explorer/ gefunden werden.
-$access_token = "CAACEdEose0cBAAMZBvicO1srZBZCs8Y7x9BssnwmB5jiwtDDIqcpMLNBSStbrUl0aYanQ2ZBT5HQKW2fQOUeaNq24NgknzXTwT7vmOAEu4eKsFNkmWzsZCHZACvJDkHo4yIlmQb72Ph2MPGrM3e3ZAHFzVMp8yRM0BcbmyyV6EHBlj0zp40jWt1OZC3KfbDLNDbmjglI3TZBJ6AZDZD";
+$access_token = "";
 
 //Facebook Scraping, Datenbank und Sentiment Analysis vorbereiten
 $fb = new FacebookScraping($access_token);
